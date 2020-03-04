@@ -1,0 +1,16 @@
+<section class="avenue-messenger">
+  <div class="menu">
+   <div class="items"><span id="menu">
+      <a href="#" phx-click="reset" title="Look for New Match">⟳</a><br>
+      <a href="#" phx-click="logout" title="Logout">&#10005;</a>
+    </span></div>
+    <div class="button" id="button-menu">...</div>
+  </div>
+  <%= cond do 
+        is_map(@chat) ->
+          render("chat.html", [messages: @messages, profile: @chat.profile])
+        true ->
+          render("loading.html", %{})
+  end %>
+</div>
+</div>

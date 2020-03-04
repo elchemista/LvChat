@@ -1,0 +1,34 @@
+<div class="agent-face">
+    <div class="half">
+     <img class="agent circle" src="<%= @profile.avatar %>" alt="<%= @profile.name %>" >
+    </div>
+</div>
+<div class="chat">
+  <div class="chat-title">
+    <h1><%= @profile.name %></h1>
+  </div>
+  <div class="messages">
+    <div class="messages-content mCustomScrollbar _mCS_1">
+    <div id="mCSB_1" class="mCustomScrollBox mCS-light mCSB_vertical mCSB_inside" style="max-height: none;" tabindex="0">
+    <div id="mCSB_1_container" class="mCSB_container" style="position: relative; top: 15px; left: 0px;" dir="ltr">
+        <%= for message <- @messages do %>
+          <%= if message.avatar do %>
+            <div class="message new">
+                <figure class="avatar"><img src="<%= @profile.avatar %>" ></figure>
+                <%= message.message %>
+            </div>
+          <% else %>
+            <div class="message message-personal new">
+              <%= message.message %>
+            </div>
+          <% end %>
+        <% end %>
+    </div>
+    </div>
+    </div>
+  </div>
+  <form action="#" class="message-box" autocomplete="off" phx-keydown="new_message" phx-submit="new_message">
+    <input type="text" name="message" class="message-input" placeholder="Type message..."></input>
+    <button type="submit" class="message-submit">Send</button>
+  </form>
+</div>
